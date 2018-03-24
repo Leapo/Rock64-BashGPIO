@@ -42,6 +42,22 @@ function gpio-input {
     cat $GPIO_ROOT/gpio$1/value
 }
 
+# GPIO PWM
+# Generate a software PWM signal
+# Arguments: GPIO #, Frequency (Hz), Duty Cycle (%), Repeatitions
+function gpio-pwm {
+    sleep_low=$(bc <<< "scale=8; (1/$2)*((100-$3)/100)")
+    sleep_high=$(bc <<< "scale=8; (1/$2)*((100-(100-$3))/100)")
+    var_count=0
+    while [ $var_count -lt $4 ]; do
+        echo 1 > $GPIO_ROOT/gpio$1/value
+        sleep $sleep_high
+        echo 0 > $GPIO_ROOT/gpio$1/value
+        let var_count=var_count+1
+        if [ $var_count -le $4 ]; then sleep $sleep_low; fi
+    done
+}
+
 # GPIO PWM Calculator
 # Generate required high/low timings for the gpio-pwm-raw function based on frequency and duty cycle.
 # Arguments: Frequency (Hz), Duty Cycle (%)
@@ -62,22 +78,6 @@ function gpio-pwm-raw {
         echo 0 > $GPIO_ROOT/gpio$1/value
         let var_count=var_count+1
         if [ $var_count -le $4 ]; then sleep $3; fi
-    done
-}
-
-# GPIO PWM
-# Generate a software PWM signal
-# Arguments: GPIO #, Frequency (Hz), Duty Cycle (%), Repeatitions
-function gpio-pwm {
-    sleep_low=$(bc <<< "scale=8; (1/$2)*((100-$3)/100)")
-    sleep_high=$(bc <<< "scale=8; (1/$2)*((100-(100-$3))/100)")
-    var_count=0
-    while [ $var_count -lt $4 ]; do
-        echo 1 > $GPIO_ROOT/gpio$1/value
-        sleep $sleep_high
-        echo 0 > $GPIO_ROOT/gpio$1/value
-        let var_count=var_count+1
-        if [ $var_count -le $4 ]; then sleep $sleep_low; fi
     done
 }
 
