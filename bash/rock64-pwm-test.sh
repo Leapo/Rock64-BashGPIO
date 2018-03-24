@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Allison Creely, 2018, GPLv3 License
+# Rock 64 GPIO Library for Bash
+
 # Sources
 source ./rock64-gpiolib.sh
 
