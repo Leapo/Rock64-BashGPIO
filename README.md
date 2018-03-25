@@ -5,31 +5,31 @@ Libraries and utilities for the Rock64 single-board computer
 rock64-gpiolib
 A basic GPIO library for the Rock64
 
-**gpio-setup**
+**gpio-setup**<br>
 Set up a new GPIO export for use as an input or output. If set as an input, set the state to pulled-up or pulled-down.
 Arguments: *GPIO #, in/out, up/down, rising/falling/both/none*
 
-**gpio-output**
+**gpio-output**<br>
 Set the value of a GPIO output
 Arguments: *GPIO #, high/low*
 
-**gpio-input**
+**gpio-input**<br>
 Read the value of a GPIO input or output
 Arguments: *GPIO #*
 
-**gpio-pwm**
+**gpio-pwm**<br>
 Generate a software PWM signal
 Arguments: *GPIO #, Frequency (Hz), Duty Cycle (%), Repeatitions*
 
-**gpio-pwm-calc**
+**gpio-pwm-calc**<br>
 Generate required high/low timings for the gpio-pwm-raw function based on frequency and duty cycle.
 Arguments: *Frequency (Hz), Duty Cycle (%)*
 
-**gpio-pwm-raw**
+**gpio-pwm-raw**<br>
 Generate a software PWM signal using raw timing values (Timings may be pre-computed by gpio-pwm-calc)
 Arguments: *GPIO #, Sleep High Duration (Seconds), Sleep Low Duration (Seconds), Repeatitions*
 
-**gpio-cleanup**
+**gpio-cleanup**<br>
 Cleanup one, or all, GPIO exports
 Arguments: *GPIO# (Leave blank to clear all GPIO exports)*
 
