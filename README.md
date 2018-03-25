@@ -33,6 +33,9 @@ Arguments: *GPIO #, Sleep High Duration (Seconds), Sleep Low Duration (Seconds),
 Cleanup one, or all, GPIO exports<br>
 Arguments: *GPIO# (Leave blank to clear all GPIO exports)*
 
+### rock64-pwm-test
+A test script utilizing the rock64-gpiolib library to set the brightness on an LED via software PWM.
+
 ## Python
 ### R64.GPIO
 A re-implementation of the RPi.GPIO library for the Rock64. Currently under development.
