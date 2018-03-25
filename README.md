@@ -1,7 +1,7 @@
 # Rock64-Utilities
 A collection of libraries, utilities, and code examples for the Rock64 single-board computer
 
-## Bash
+## Bash Libraries and Scripts
 ### rock64-gpiolib
 A basic GPIO library for the Rock64 for Bash shell scripts
 
@@ -36,7 +36,7 @@ Arguments: *GPIO# (Leave blank to clear all GPIO exports)*
 ### rock64-pwm-test
 A test script utilizing the rock64-gpiolib library to set the brightness on an LED via software PWM.
 
-## Python
+## Python Libraries and Scripts
 ### R64.GPIO
 A re-implementation of the RPi.GPIO library for the Rock64. Currently under development.
 
