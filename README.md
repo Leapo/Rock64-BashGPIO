@@ -1,7 +1,8 @@
 # Rock64-Utilities
 Libraries and utilities for the Rock64 single-board computer
 
-## Bash - rock64-gpiolib
+## Bash
+### rock64-gpiolib
 A basic GPIO library for the Rock64 for Bash shell scripts
 
 **gpio-setup**<br>
@@ -32,7 +33,8 @@ Arguments: *GPIO #, Sleep High Duration (Seconds), Sleep Low Duration (Seconds),
 Cleanup one, or all, GPIO exports<br>
 Arguments: *GPIO# (Leave blank to clear all GPIO exports)*
 
-## Python - R64.GPIO
+## Python
+### R64.GPIO
 A re-implementation of the RPi.GPIO library for the Rock64. Currently under development.
 
 # Resources
