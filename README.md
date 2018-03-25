@@ -24,5 +24,5 @@ A re-implementation of the RPi.GPIO library for the Rock64. Currently under deve
 
 # Resources
 List of resources used while building the scripts and libraries in this repository
-* [GPIO/SYSFS Documentation](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt)
+* [Kernel.org - GPIO/SYSFS Documentation](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt)
 * [Pine64 Forum - GPIO LED blinker using SYSFS on the Rock64](https://forum.pine64.org/showthread.php?tid=4695)
