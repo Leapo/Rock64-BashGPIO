@@ -7,8 +7,8 @@
 GPIO_ROOT=/sys/class/gpio
 
 # GPIO Setup
-# Set up a new GPIO export for use
-# Arguments: GPIO #, in/out
+# Set up a new GPIO export for use as an input or output. If set as an input, set the state to pulled-up or pulled-down.
+# Arguments: GPIO #, in/out, up/down, rising/falling/both/none
 function gpio-setup {
     if [ ! -d $GPIO_ROOT/gpio$1 ]; then
         echo $1 > $GPIO_ROOT/export
@@ -17,8 +17,24 @@ function gpio-setup {
     fi
     if [ "$2" == "out" ] || [ "$2" == "in" ]; then
         echo $2 > $GPIO_ROOT/gpio$1/direction
+        if [ "$2" == "in" ]; then
+            if [ "$3" == "up" ]; then
+                echo 0 > $GPIO_ROOT/gpio$1/active_low
+            elif [ "$3" == "down" ] || [ -z ${3+x} ]; then
+                echo 1 > $GPIO_ROOT/gpio$1/active_low
+            else
+                echo "Error: Invalid selection for option 3. Valid selections include: up, down"
+            fi
+            if [ "$4" == "rising" ] || [ "$4" == "falling" ] || [ "$4" == "both" ]; then
+                echo $4 > $GPIO_ROOT/gpio$1/edge
+            elif [ "$4" == "none" ] || [ -z ${4+x} ]; then
+                echo none > $GPIO_ROOT/gpio$1/edge
+            else
+                echo "Error: Invalid selection for option 4. Valid selections include: rising, falling, both, none"
+            fi
+        fi
     else
-        echo "Error: Invalid option. Valid options include: out, in"
+        echo "Error: Invalid selection for option 2. Valid selections include: out, in"
     fi
 }
 
@@ -31,7 +47,7 @@ function gpio-output {
     elif [ "$2" == "low" ]; then
         echo 0 > $GPIO_ROOT/gpio$1/value
     else
-        echo "Error: Invalid option. Valid options include: high, low"
+        echo "Error: Invalid selection for option 2. Valid selections include: high, low"
     fi
 }
 
@@ -40,22 +56,6 @@ function gpio-output {
 # Arguments: GPIO #
 function gpio-input {
     cat $GPIO_ROOT/gpio$1/value
-}
-
-# GPIO PWM
-# Generate a software PWM signal
-# Arguments: GPIO #, Frequency (Hz), Duty Cycle (%), Repeatitions
-function gpio-pwm {
-    sleep_low=$(bc <<< "scale=8; (1/$2)*((100-$3)/100)")
-    sleep_high=$(bc <<< "scale=8; (1/$2)*((100-(100-$3))/100)")
-    var_count=0
-    while [ $var_count -lt $4 ]; do
-        echo 1 > $GPIO_ROOT/gpio$1/value
-        sleep $sleep_high
-        echo 0 > $GPIO_ROOT/gpio$1/value
-        let var_count=var_count+1
-        if [ $var_count -le $4 ]; then sleep $sleep_low; fi
-    done
 }
 
 # GPIO PWM Calculator
@@ -81,9 +81,25 @@ function gpio-pwm-raw {
     done
 }
 
+# GPIO PWM
+# Generate a software PWM signal
+# Arguments: GPIO #, Frequency (Hz), Duty Cycle (%), Repeatitions
+function gpio-pwm {
+    sleep_low=$(bc <<< "scale=8; (1/$2)*((100-$3)/100)")
+    sleep_high=$(bc <<< "scale=8; (1/$2)*((100-(100-$3))/100)")
+    var_count=0
+    while [ $var_count -lt $4 ]; do
+        echo 1 > $GPIO_ROOT/gpio$1/value
+        sleep $sleep_high
+        echo 0 > $GPIO_ROOT/gpio$1/value
+        let var_count=var_count+1
+        if [ $var_count -le $4 ]; then sleep $sleep_low; fi
+    done
+}
+
 # GPIO Cleanup
 # Cleanup GPIO exports
-# Arguments: GPIO# (Leave blank to clear  all GPIO exports)
+# Arguments: GPIO# (Leave blank to clear all GPIO exports)
 function gpio-cleanup {
     if [ -z ${1+x} ]; then
         var_count=1
