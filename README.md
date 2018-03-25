@@ -5,7 +5,6 @@ Libraries and utilities for the Rock64 single-board computer
 rock64-gpiolib
 A basic GPIO library for the Rock64
 
-**Supported Functions**
 * gpio-setup
 * gpio-output
 * gpio-input
