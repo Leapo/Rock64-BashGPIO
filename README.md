@@ -2,8 +2,17 @@
 A collection of libraries, utilities, and code examples for the Rock64 single-board computer
 
 ## Bash Libraries and Scripts
-### rock64-gpiolib
+**rock64-gpiolib**<br>
 A basic GPIO library for the Rock64 for Bash shell scripts
+Function      | Arguments   | Description
+------------- | ----------- | -------------
+gpio-setup    | GPIO #, in/out, up/down, rising/falling/both/none | Set up a new GPIO export for use as an input or output. If set as an input, set the state to pulled-up or pulled-down.
+gpio-output   |
+gpio-input    | 
+gpio-pwm      | 
+gpio-pwm-calc | 
+gpio-pwm-raw  | 
+gpio-cleanup  | 
 
 **gpio-setup**<br>
 Set up a new GPIO export for use as an input or output. If set as an input, set the state to pulled-up or pulled-down.<br>
@@ -33,7 +42,7 @@ Arguments: *GPIO #, Sleep High Duration (Seconds), Sleep Low Duration (Seconds),
 Cleanup one, or all, GPIO exports<br>
 Arguments: *GPIO# (Leave blank to clear all GPIO exports)*
 
-### rock64-pwm-test
+**rock64-pwm-test**<br>
 A test script utilizing the rock64-gpiolib library to set the brightness on an LED via software PWM.
 
 ## Python Libraries and Scripts
