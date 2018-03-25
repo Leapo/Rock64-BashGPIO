@@ -6,7 +6,7 @@ A collection of libraries, utilities, and code examples for the Rock64 single-bo
 A basic GPIO library for the Rock64 for Bash shell scripts
 
 Function        | Arguments                                         
---------------- | ---------
+:-------------- | :---------
 `gpio-setup`    | GPIO #, in/out, up/down, rising/falling/both/none
 `gpio-output`   | GPIO #, high/low
 `gpio-input`    | GPIO #
