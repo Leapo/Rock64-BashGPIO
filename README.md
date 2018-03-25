@@ -7,7 +7,7 @@ A basic GPIO library for the Rock64 for Bash shell scripts
 
 Function      | Arguments                                         
 ------------- | ---------
-gpio0setup    | *GPIO #, in/out, up/down, rising/falling/both/none*
+gpio-setup    | *GPIO #, in/out, up/down, rising/falling/both/none*
 gpio-output   | *GPIO #, high/low*
 gpio-input    | *GPIO #*
 gpio-pwm      | *GPIO #, Frequency (Hz), Duty Cycle (%), Repeatitions*
