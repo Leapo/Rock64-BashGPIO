@@ -7,12 +7,6 @@ A basic GPIO library for the Rock64 for Bash shell scripts
 Function      | Arguments   | Description
 ------------- | ----------- | -------------
 gpio-setup    | GPIO #, in/out, up/down, rising/falling/both/none | Set up a new GPIO export for use as an input or output. If set as an input, set the state to pulled-up or pulled-down.
-gpio-output   |
-gpio-input    | 
-gpio-pwm      | 
-gpio-pwm-calc | 
-gpio-pwm-raw  | 
-gpio-cleanup  | 
 
 **gpio-setup**<br>
 Set up a new GPIO export for use as an input or output. If set as an input, set the state to pulled-up or pulled-down.<br>
