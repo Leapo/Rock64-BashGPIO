@@ -4,8 +4,8 @@ A collection of libraries, utilities, and code examples for the Rock64 single-bo
 ## Bash Libraries and Scripts
 **rock64-gpiolib**<br>
 A basic GPIO library for the Rock64 for Bash shell scripts
-Function      | Arguments   | Description
-------------- | ----------- | -------------
+Function      | Arguments                                         | Description
+------------- | ------------------------------------------------- | -------------
 gpio-setup    | GPIO #, in/out, up/down, rising/falling/both/none | Set up a new GPIO export for use as an input or output. If set as an input, set the state to pulled-up or pulled-down.
 
 **gpio-setup**<br>
