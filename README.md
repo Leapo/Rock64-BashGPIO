@@ -6,31 +6,31 @@ rock64-gpiolib
 A basic GPIO library for the Rock64
 
 **gpio-setup**<br>
-Set up a new GPIO export for use as an input or output. If set as an input, set the state to pulled-up or pulled-down.
+Set up a new GPIO export for use as an input or output. If set as an input, set the state to pulled-up or pulled-down.<br>
 Arguments: *GPIO #, in/out, up/down, rising/falling/both/none*
 
 **gpio-output**<br>
-Set the value of a GPIO output
+Set the value of a GPIO output<br>
 Arguments: *GPIO #, high/low*
 
 **gpio-input**<br>
-Read the value of a GPIO input or output
+Read the value of a GPIO input or output<br>
 Arguments: *GPIO #*
 
 **gpio-pwm**<br>
-Generate a software PWM signal
+Generate a software PWM signal<br>
 Arguments: *GPIO #, Frequency (Hz), Duty Cycle (%), Repeatitions*
 
 **gpio-pwm-calc**<br>
-Generate required high/low timings for the gpio-pwm-raw function based on frequency and duty cycle.
+Generate required high/low timings for the gpio-pwm-raw function based on frequency and duty cycle.<br>
 Arguments: *Frequency (Hz), Duty Cycle (%)*
 
 **gpio-pwm-raw**<br>
-Generate a software PWM signal using raw timing values (Timings may be pre-computed by gpio-pwm-calc)
+Generate a software PWM signal using raw timing values (Timings may be pre-computed by gpio-pwm-calc)<br>
 Arguments: *GPIO #, Sleep High Duration (Seconds), Sleep Low Duration (Seconds), Repeatitions*
 
 **gpio-cleanup**<br>
-Cleanup one, or all, GPIO exports
+Cleanup one, or all, GPIO exports<br>
 Arguments: *GPIO# (Leave blank to clear all GPIO exports)*
 
 # Python Libraries
