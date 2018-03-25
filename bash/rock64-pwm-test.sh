@@ -11,9 +11,9 @@ source ./rock64-gpiolib.sh
 var_gpio_led1=101
 
 # Setup GPIOs
-gpio-setup $var_gpio_led1 out
+gpio-setup $var_gpio_led1 out up
 
-# trap ctrl-c interrupt for GPIO cleanup
+# trap ctrl-c key combination for GPIO cleanup
 function script-cleanup {
     echo ""
     echo "Cleaning up, stopping..."
@@ -26,13 +26,14 @@ trap 'script-cleanup' INT
 echo "Testing PWM Duty Cycle Scaling..."
 
 # Sustained PWM values
-# Options for gpio-pwm: GPIO, Hz, DutyCycle, Duration
+echo "Sustained PWM Value: 60Hz at 0% Duty Cycle"
 gpio-pwm $var_gpio_led1 60 0 100
+echo "Sustained PWM Value: 60Hz at 50% Duty Cycle"
 gpio-pwm $var_gpio_led1 60 50 100
+echo "Sustained PWM Value: 60Hz at 100% Duty Cycle"
 gpio-pwm $var_gpio_led1 60 100 100
 
-# Precalculate PWM values for gpio-pwm-raw
-# Options for gpio-pwm-calc: Hz, DutyCycle
+# Precalculate PWM timing values
 var_throb0=$(gpio-pwm-calc 60 0)
 var_throb1=$(gpio-pwm-calc 70 10)
 var_throb2=$(gpio-pwm-calc 75 20)
@@ -45,8 +46,8 @@ var_throb8=$(gpio-pwm-calc 75 80)
 var_throb9=$(gpio-pwm-calc 70 90)
 var_throb10=$(gpio-pwm-calc 60 100)
 
-# Brighten/dim an atached LED until the script is interupted.
-# Options for gpio-pwm-raw: GPIO, $(gpio_pwm_calc Hz DutyCycle), duration
+# Start throbbing pattern
+echo "Scaling PWM Value: 60-to-75Hz at 0-to-100% Duty Cycle (Using precalculated timings)"
 while true; do
     gpio-pwm-raw $var_gpio_led1 $var_throb0 7
     gpio-pwm-raw $var_gpio_led1 $var_throb1 5
