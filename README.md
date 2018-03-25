@@ -5,15 +5,15 @@ A collection of libraries, utilities, and code examples for the Rock64 single-bo
 **rock64-gpiolib**<br>
 A basic GPIO library for the Rock64 for Bash shell scripts
 
-Function      | Arguments                                         
-------------- | ---------
-gpio-setup    | GPIO #, in/out, up/down, rising/falling/both/none
-gpio-output   | GPIO #, high/low
-gpio-input    | GPIO #
-gpio-pwm      | GPIO #, Frequency (Hz), Duty Cycle (%), Repeatitions
-gpio-pwm-calc | Frequency (Hz), Duty Cycle (%)
-gpio-pwm-raw  | GPIO #, Sleep High Duration (Seconds), Sleep Low Duration (Seconds), Repeatitions
-gpio-cleanup  | GPIO# (Leave blank to clear all GPIO exports)
+Function        | Arguments                                         
+--------------- | ---------
+`gpio-setup`    | GPIO #, in/out, up/down, rising/falling/both/none
+`gpio-output`   | GPIO #, high/low
+`gpio-input`    | GPIO #
+`gpio-pwm`      | GPIO #, Frequency (Hz), Duty Cycle (%), Repeatitions
+`gpio-pwm-calc` | Frequency (Hz), Duty Cycle (%)
+`gpio-pwm-raw`  | GPIO #, Sleep High Duration (Seconds), Sleep Low Duration (Seconds), Repeatitions
+`gpio-cleanup`  | GPIO# (Leave blank to clear all GPIO exports)
 
 **rock64-pwm-test**<br>
 A test script utilizing the rock64-gpiolib library to set the brightness on an LED via software PWM.
