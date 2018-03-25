@@ -1,8 +1,7 @@
 # Rock64-Utilities
 Libraries and utilities for the Rock64 single-board computer
-
 ## Bash
-### rock64-gpiolib<br>
+### rock64-gpiolib
 A basic GPIO library for the Rock64 for Bash shell scripts
 
 **gpio-setup**<br>
