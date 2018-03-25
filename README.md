@@ -1,5 +1,5 @@
 # Rock64-Utilities
-Libraries and utilities for the Rock64 single-board computer
+A collection of libraries, utilities, and code examples for the Rock64 single-board computer
 
 ## Bash
 ### rock64-gpiolib
