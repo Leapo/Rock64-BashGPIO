@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Allison Creely, 2018, GPLv3 License
+# Allison Creely, 2018, LGPLv3 License
 # Rock 64 GPIO Library for Bash
 
 # Internal VARs
