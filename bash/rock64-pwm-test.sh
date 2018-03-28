@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Allison Creely, 2018, GPLv3 License
+# Allison Creely, 2018, LGPLv3 License
 # Software-based PWM test script. Scales the brightness of an LED up/down
 # Note: Requires my Rock 64 GPIO Library for Bash
 
