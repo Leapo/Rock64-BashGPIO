@@ -1,4 +1,4 @@
-# Rock64-BashUtilities
+# Rock64-BashGPIO
 A collection of Bash libraries, utilities, and scripts for the Rock64 single-board computer
 
 ## Bash Libraries and Scripts
